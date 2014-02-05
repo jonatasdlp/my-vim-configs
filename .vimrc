@@ -26,6 +26,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-scripts/EasyGrep'
+NeoBundle 'vim-ruby/vim-ruby'
 
 " My Bundles here:
 "
@@ -46,8 +47,9 @@ filetype plugin indent on     " Required!
 NeoBundleCheck
 
 " Configs
-set ts=2
-set sw=2
+set tabstop=2
+set shiftwidth=2
+set expandtab
 set ai
 set nowrap
 set guifont=Liberation\ Mono\ for\ Powerline\ 10
@@ -64,6 +66,7 @@ set laststatus+=1
 set t_Co=256
 syntax on
 
+" Define solarized only gvim
 if has("gui_running")
 	colorscheme solarized	
 endif
@@ -72,8 +75,11 @@ endif
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :split<CR>
 nmap <F4> :tabnew<CR>
+nmap <F12> :retab<CR>
 
-" Key maps
-nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :split<CR>
-nmap <F4> :tabnew<CR>
+" backup to ~/.tmp
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup

@@ -11,6 +11,7 @@ vim-addon-mw-utils
 vim-airline
 vim-colors-solarized
 vim-rails
+vim-ruby
 vim-snipmate
 vimfiler.vim
 vimproc

@@ -76,6 +76,7 @@ endif
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :split<CR>
 nmap <F4> :tabnew<CR>
+nmap <F6> :/\
 nmap <F12> :retab<CR>
 
 " backup to ~/.tmp

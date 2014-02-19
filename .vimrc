@@ -72,7 +72,7 @@ syntax on
 
 " Define solarized only gvim
 if has("gui_running")
-	colorscheme solarized	
+	colorscheme vividchalk	
 endif
 
 " Key maps

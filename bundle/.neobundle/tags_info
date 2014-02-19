@@ -12,6 +12,7 @@ tlib_vim
 vim-addon-mw-utils
 vim-airline
 vim-colors-solarized
+vim-jsbeautify
 vim-rails
 vim-ruby
 vim-snipmate

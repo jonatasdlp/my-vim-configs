@@ -1,6 +1,8 @@
 EasyGrep
 bufkill.vim
 ctrlp.vim
+emmet-vim
+html5.vim
 neobundle.vim
 nerdcommenter
 nerdtree

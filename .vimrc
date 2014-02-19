@@ -69,6 +69,7 @@ let g:NERDTreeWinPos = "right"
 set laststatus+=1
 set t_Co=256
 syntax on
+let g:user_emmet_mode='a'    "enable all function in all mode.
 
 " Define solarized only gvim
 if has("gui_running")

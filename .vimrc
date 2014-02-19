@@ -30,6 +30,7 @@ NeoBundle 'vim-scripts/EasyGrep'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'mattn/emmet-vim/'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'maksimr/vim-jsbeautify'
 
 " My Bundles here:
 "

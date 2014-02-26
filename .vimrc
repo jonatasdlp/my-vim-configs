@@ -70,10 +70,16 @@ set laststatus+=1
 set t_Co=256
 syntax on
 let g:user_emmet_mode='a'    "enable all function in all mode.
+set number
+
+" Vimbrant configs
+colorscheme vimbrant
+highlight ColorColumn ctermbg=7
+highlight ColorColumn guibg=Gray
 
 " Define solarized only gvim
 if has("gui_running")
-	colorscheme vividchalk	
+  colorscheme vimbrant
 endif
 
 " Key maps

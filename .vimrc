@@ -31,6 +31,9 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'mattn/emmet-vim/'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundle 'jgdavey/tslime.vim'
+NeoBundle 'thoughtbot/vim-rspec'
+NeoBundle 'ap/vim-css-color'
 
 " My Bundles here:
 "
@@ -51,26 +54,27 @@ filetype plugin indent on     " Required!
 NeoBundleCheck
 
 " Configs
+syntax on
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set ai
 set nowrap
 set guifont=Liberation\ Mono\ for\ Powerline\ 10
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
 set background=dark
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
-autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
 set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
-let g:NERDTreeWinPos = "right"
 set laststatus+=1
 set t_Co=256
-syntax on
-let g:user_emmet_mode='a'    "enable all function in all mode.
 set number
+let g:NERDTreeWinPos = "left"
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:user_emmet_mode='a'    "enable all function in all mode.
+autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
 
 " Vimbrant configs
 colorscheme vimbrant
@@ -88,6 +92,11 @@ nmap <F3> :split<CR>
 nmap <F4> :tabnew<CR>
 nmap <F6> :/\
 nmap <F12> :retab<CR>
+nmap <F8> :TagbarToggle<CR>
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 " backup to ~/.tmp
 set backup

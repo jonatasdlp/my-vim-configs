@@ -9,11 +9,14 @@ nerdtree
 syntastic
 tagbar
 tlib_vim
+tslime.vim
 vim-addon-mw-utils
 vim-airline
 vim-colors-solarized
+vim-css-color
 vim-jsbeautify
 vim-rails
+vim-rspec
 vim-ruby
 vim-snipmate
 vim-snippets

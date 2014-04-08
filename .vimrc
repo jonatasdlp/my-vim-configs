@@ -34,6 +34,8 @@ NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'jgdavey/tslime.vim'
 NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'ap/vim-css-color'
+NeoBundle 'itspriddle/vim-jquery'
+NeoBundle 'tpope/vim-endwise'
 
 " My Bundles here:
 "

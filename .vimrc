@@ -1,6 +1,6 @@
 if has('vim_starting')
-	set nocompatible               " Be iMproved
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set nocompatible " Be iMproved
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -10,7 +10,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Recommended to install
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'ddollar/nerdcommenter'
@@ -35,25 +34,22 @@ NeoBundle 'thoughtbot/vim-rspec'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'itspriddle/vim-jquery'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'dag/vim-fish'
 
 " My Bundles here:
 "
 " Note: You don't set neobundle setting in .gvimrc!
 " Original repos on github
 " vim-scripts repos
-
 " ...
-
-filetype plugin indent on     " Required!
+filetype plugin indent on " Required!
 "
 " Brief help
-" :NeoBundleList          - list configured bundles
-" :NeoBundleInstall(!)    - install(update) bundles
-" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-
+" :NeoBundleList - list configured bundles
+" :NeoBundleInstall(!) - install(update) bundles
+" :NeoBundleClean(!) - confirm(or auto-approve) removal of unused bundles
 " Installation check.
 NeoBundleCheck
-
 " Configs
 syntax on
 set tabstop=2
@@ -70,15 +66,18 @@ set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
 set laststatus+=1
 set t_Co=256
 set number
+set shell=/bin/bash
 let g:NERDTreeWinPos = "left"
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:user_emmet_mode='a'    "enable all function in all mode.
+let g:user_emmet_mode='a' "enable all function in all mode.
+let NERDTreeIgnore=['\www', '\~$']
+
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
 
 " Vimbrant configs
-colorscheme vimbrant
+colorscheme flatcolor
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 

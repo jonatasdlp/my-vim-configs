@@ -1,12 +1,20 @@
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
 if has('vim_starting')
-  set nocompatible " Be iMproved
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+set nocompatible               " Be iMproved
+
+" Required:
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
+" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
+
 
 " Recommended to install
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
@@ -37,19 +45,18 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'dag/vim-fish'
 
 " My Bundles here:
-"
+" Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
-" Original repos on github
-" vim-scripts repos
-" ...
-filetype plugin indent on " Required!
-"
-" Brief help
-" :NeoBundleList - list configured bundles
-" :NeoBundleInstall(!) - install(update) bundles
-" :NeoBundleClean(!) - confirm(or auto-approve) removal of unused bundles
-" Installation check.
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
 NeoBundleCheck
+
 " Configs
 syntax on
 set tabstop=2

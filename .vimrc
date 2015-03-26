@@ -1,21 +1,15 @@
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
-
 if has('vim_starting')
-set nocompatible               " Be iMproved
-
+set nocompatible " Be iMproved
 " Required:
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
-
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
-
-
 " Recommended to install
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'tpope/vim-rails'
@@ -43,20 +37,17 @@ NeoBundle 'ap/vim-css-color'
 NeoBundle 'itspriddle/vim-jquery'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'dag/vim-fish'
-
+NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundle 'einars/js-beautify'
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
-
 call neobundle#end()
-
 " Required:
 filetype plugin indent on
-
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
-
 " Configs
 syntax on
 set tabstop=2
@@ -80,19 +71,14 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:user_emmet_mode='a' "enable all function in all mode.
 let NERDTreeIgnore=['\www', '\~$']
-
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
-
 " Vimbrant configs
-colorscheme flatcolor
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
-
 " Define solarized only gvim
 if has("gui_running")
-  colorscheme vimbrant
+  colorscheme solarized
 endif
-
 " Key maps
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :split<CR>
@@ -104,6 +90,14 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+" JS Beutify
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " backup to ~/.tmp
 set backup

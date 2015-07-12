@@ -1,16 +1,21 @@
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
+
 if has('vim_starting')
-set nocompatible " Be iMproved
-" Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set nocompatible " Be iMproved
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
+
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 " Recommended to install
+
 " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'kien/ctrlp.vim'
@@ -55,30 +60,37 @@ set shiftwidth=2
 set expandtab
 set ai
 set nowrap
-set guifont=Liberation\ Mono\ for\ Powerline\ 10
 set background=dark
-set guioptions-=T " Removes top toolbar
-set guioptions-=r " Removes right hand scroll bar
-set go-=L " Removes left hand scroll bar
 set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
-set laststatus+=1
 set t_Co=256
 set number
 set shell=/bin/bash
+
 let g:NERDTreeWinPos = "left"
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
 let g:user_emmet_mode='a' "enable all function in all mode.
 let NERDTreeIgnore=['\www', '\~$']
+
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
+
 " Vimbrant configs
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
+
 " Define solarized only gvim
 if has("gui_running")
   colorscheme solarized
+
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 1
+  
+  set guifont=Liberation\ Mono\ for\ Powerline:h12
+  set guioptions-=T " Removes top toolbar
+  set guioptions-=r " Removes right hand scroll bar
+  set go-=L " Removes left hand scroll bar
+  set laststatus+=1
 endif
+
 " Key maps
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :split<CR>
@@ -90,8 +102,10 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
 " JS Beutify
 map <c-f> :call JsBeautify()<cr>
+
 " or
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 " for html

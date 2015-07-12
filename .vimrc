@@ -44,15 +44,20 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'dag/vim-fish'
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'einars/js-beautify'
+NeoBundle 'fatih/vim-go'
+
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
 " Note: You don't set neobundle setting in .gvimrc!
 call neobundle#end()
+
 " Required:
 filetype plugin indent on
+
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
 " Configs
 syntax on
 set tabstop=2
@@ -64,7 +69,7 @@ set background=dark
 set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
 set t_Co=256
 set number
-set shell=/bin/bash
+set shell=/bin/zsh
 
 let g:NERDTreeWinPos = "left"
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
@@ -79,7 +84,7 @@ highlight ColorColumn guibg=Gray
 
 " Define solarized only gvim
 if has("gui_running")
-  colorscheme solarized
+  colorscheme Tomorrow-Night-Eighties
 
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
@@ -112,6 +117,25 @@ autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+" Go setup
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>s <Plug>(go-implements)
+
+let g:go_fmt_command = "goimports"
+let g:go_bin_path = "~/go"
+
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " backup to ~/.tmp
 set backup

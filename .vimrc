@@ -45,6 +45,14 @@ NeoBundle 'dag/vim-fish'
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'einars/js-beautify'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'thomd/vim-wasabi-colorscheme'
+NeoBundle 'MPiccinato/wombat256'
+NeoBundle 'blackgate/tropikos-vim-theme'
+NeoBundle 'benjaminwhite/Benokai'
+NeoBundle 'romainl/flattened'
+NeoBundle 'sickill/vim-sunburst'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-colorscheme-switcher'
 
 " My Bundles here:
 " Refer to |:NeoBundle-examples|.
@@ -84,7 +92,7 @@ highlight ColorColumn guibg=Gray
 
 " Define solarized only gvim
 if has("gui_running")
-  colorscheme Tomorrow-Night-Eighties
+  colorscheme railscasts
 
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
@@ -103,6 +111,7 @@ nmap <F4> :tabnew<CR>
 nmap <F6> :/\
 nmap <F12> :retab<CR>
 nmap <F8> :TagbarToggle<CR>
+nmap <F9> :NextColorScheme<CR>
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>

@@ -1,59 +1,62 @@
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
+call plug#begin('~/.vim/plugged')
 
-if has('vim_starting')
-  set nocompatible " Be iMproved
+" Make sure you use single quotes
 
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+" Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-" Recommended to install
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'ddollar/nerdcommenter'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'garbas/vim-snipmate'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'vim-scripts/bufkill.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'vim-scripts/EasyGrep'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'mattn/emmet-vim/'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'maksimr/vim-jsbeautify'
-NeoBundle 'jgdavey/tslime.vim'
-NeoBundle 'thoughtbot/vim-rspec'
-NeoBundle 'ap/vim-css-color'
-NeoBundle 'itspriddle/vim-jquery'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'dag/vim-fish'
-NeoBundle 'maksimr/vim-jsbeautify'
-NeoBundle 'einars/js-beautify'
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-call neobundle#end()
-" Required:
-filetype plugin indent on
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-" Configs
+" Using a non-master branch
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+Plug 'fatih/vim-go', { 'tag': '*' }
+
+" Plugin options
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Unmanaged plugin (manually installed and updated)
+Plug '~/my-prototype-plugin'
+
+" Add plugins to &runtimepath
+Plug 'tpope/vim-rails'
+Plug 'kien/ctrlp.vim'
+Plug 'ddollar/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'vim-scripts/bufkill.vim'
+Plug 'Shougo/vimfiler.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/EasyGrep'
+Plug 'vim-ruby/vim-ruby'
+Plug 'mattn/emmet-vim/'
+Plug 'othree/html5.vim'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'jgdavey/tslime.vim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'ap/vim-css-color'
+Plug 'itspriddle/vim-jquery'
+Plug 'tpope/vim-endwise'
+Plug 'dag/vim-fish'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'einars/js-beautify'
+
+call plug#end()
+
 syntax on
 set tabstop=2
 set shiftwidth=2
@@ -77,19 +80,8 @@ autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> c
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
-" Define solarized only gvim
-if has("gui_running")
-  colorscheme solarized
-
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#enabled = 1
-  
-  set guifont=Liberation\ Mono\ for\ Powerline:h12
-  set guioptions-=T " Removes top toolbar
-  set guioptions-=r " Removes right hand scroll bar
-  set go-=L " Removes left hand scroll bar
-  set laststatus+=1
-endif
+" Required:
+filetype plugin indent on
 
 " Key maps
 nmap <F2> :NERDTreeToggle<CR>

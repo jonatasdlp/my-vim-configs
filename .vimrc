@@ -54,6 +54,7 @@ Plug 'tpope/vim-endwise'
 Plug 'dag/vim-fish'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'einars/js-beautify'
+Plug 'dkprice/vim-easygrep'
 
 call plug#end()
 

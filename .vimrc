@@ -30,7 +30,6 @@ Plug '~/my-prototype-plugin'
 Plug 'tpope/vim-rails'
 Plug 'kien/ctrlp.vim'
 Plug 'ddollar/nerdcommenter'
-Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
@@ -54,7 +53,9 @@ Plug 'tpope/vim-endwise'
 Plug 'dag/vim-fish'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'einars/js-beautify'
-Plug 'dkprice/vim-easygrep'
+Plug 'mxw/vim-jsx'
+Plug 'w0rp/ale'
+Plug 'othree/es.next.syntax.vim'
 
 call plug#end()
 
@@ -74,6 +75,12 @@ let g:NERDTreeWinPos = "left"
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 let g:user_emmet_mode='a' "enable all function in all mode.
 let NERDTreeIgnore=['\www', '\~$']
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_lint_on_text_changed = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
 

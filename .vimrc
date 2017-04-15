@@ -56,6 +56,12 @@ Plug 'einars/js-beautify'
 Plug 'mxw/vim-jsx'
 Plug 'w0rp/ale'
 Plug 'othree/es.next.syntax.vim'
+Plug 'carakan/new-railscasts-theme'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tomasr/molokai'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -69,7 +75,8 @@ set background=dark
 set cpoptions+=$ " puts a $ marker for the end of words/lines in cw/c$ commands
 set t_Co=256
 set number
-set shell=/bin/bash
+set shell=/bin/zsh
+colorscheme molokai
 
 let g:NERDTreeWinPos = "left"
 let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
@@ -81,6 +88,29 @@ let g:ale_linters = {
 let g:ale_lint_on_text_changed = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
+let g:javascript_plugin_jsdoc = 1
+let g:jsx_ext_required = 0
+
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
+
+let g:molokai_original = 1
+let g:rehash256 = 1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_powerline_fonts = 1
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
 

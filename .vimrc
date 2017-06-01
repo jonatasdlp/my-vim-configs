@@ -62,6 +62,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'tomasr/molokai'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 
@@ -111,6 +112,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
+let g:neoformat_try_formatprg = 1
+let g:vim_jsx_pretty_enable_jsx_highlight = 0
+let g:vim_jsx_pretty_colorful_config = 1
 
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>" " displays <% %> correctly
 
@@ -142,6 +146,13 @@ autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" prettier custom
+autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --parser\ flow\ --single-quote\ --trailing-comma\ es5
+
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
 
 " backup to ~/.tmp
 set backup
